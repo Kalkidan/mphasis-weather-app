@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Gradle files
 .gradle/
 build/
@@ -32,8 +31,6 @@ google-services.json
 
 # Android Profiling
 *.hprof
-=======
-*.iml
 .gradle
 gradle
 .idea
@@ -49,5 +46,4 @@ gradle
 /captures
 .externalNativeBuild
 .cxx
-local.properties
->>>>>>> 4889559 (First round of commit)
+
