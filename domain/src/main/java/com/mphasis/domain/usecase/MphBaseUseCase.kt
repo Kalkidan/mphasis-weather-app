@@ -1,7 +1,7 @@
 package com.mphasis.domain.usecase
 
 import com.mphasis.data.network.helper.MphNetworkResponse
-import com.mphasis.data.repository.MphCommonData
+import com.mphasis.domain.model.MphCommonData
 
 /**
  * A common use case for the application

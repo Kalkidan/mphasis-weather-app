@@ -1,4 +1,4 @@
-package com.mphasis.domain.di
+package com.mphasis.domain.usecase.di
 
 import com.mphasis.domain.usecase.MphWeatherByCityUseCase
 import com.mphasis.domain.usecase.MphWeatherByCityUseCaseImpl
@@ -28,4 +28,5 @@ abstract class MphWeatherByCityUseCaseModule {
     @ViewModelScoped
     abstract fun providesWeatherByCityUseCase(useCase: MphWeatherByCityUseCaseImpl) :
             MphWeatherByCityUseCase
+
 }

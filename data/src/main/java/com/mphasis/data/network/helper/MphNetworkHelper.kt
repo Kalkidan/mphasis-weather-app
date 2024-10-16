@@ -33,6 +33,9 @@ sealed interface MphNetworkResponse {
  * developers are concerned - however, keeping it concise and
  * targeted by using extension functions would be most liked, hence,
  * the approach in this project.
+ *
+ * PLEASE FEEL FREE TO EXPAND THIS IMPLEMENTATION TO HANDLE ANY CASE -
+ * FOR NOW THIS SUFFICES.
  ********************************************************************/
 fun <T> Response<T>.toResult(): MphNetworkResponse = when {
     isSuccessful && body() != null -> MphNetworkResponse.Success(body())

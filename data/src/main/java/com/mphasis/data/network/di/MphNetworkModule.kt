@@ -1,5 +1,7 @@
 package com.mphasis.data.network.di
 
+import android.content.Context
+import android.location.Geocoder
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.mphasis.data.BuildConfig
 import com.mphasis.data.network.MphRetrofitApi
@@ -7,6 +9,8 @@ import dagger.Lazy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ActivityScoped
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
 import okhttp3.Call
@@ -14,6 +18,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import java.util.Locale
 import javax.inject.Singleton
 
 /**
@@ -90,6 +95,21 @@ class MphNetworkModule {
     fun providesMelaRetrofitApi(api: Retrofit): MphRetrofitApi {
         return api.create(MphRetrofitApi::class.java)
     }
+
+    /**
+     * Provides Locale for usage in [Geocoder].
+     */
+    @Provides
+    @Singleton
+    fun providesLocalForGeoCoder() = Locale("en")
+
+    /**
+     * Provides an instance of [Geocoder].
+     */
+    @Provides
+    @Singleton
+    fun providesGeocoderInstance(@ApplicationContext context: Context, locale: Locale) =
+        Geocoder(context, locale)
 
 
 }

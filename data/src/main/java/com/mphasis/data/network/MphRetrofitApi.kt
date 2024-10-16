@@ -25,4 +25,17 @@ interface MphRetrofitApi {
         @Query("q") cityName: String,
         @Query("appId") appId: String = BuildConfig.API_KEY
     ): Response<WeatherData>
+
+    /**
+     * A GET weather end point to collect weather data
+     * from the back end.
+     *
+     * @return [WeatherData]
+     */
+    @GET(value = BuildConfig.WEATHER_PATH)
+    suspend fun getWeatherBy(
+        @Query("lat") lat: Double,
+        @Query("long") long: Double,
+        @Query("appId") appId: String = BuildConfig.API_KEY
+    ): Response<WeatherData>
 }

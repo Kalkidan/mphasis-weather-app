@@ -26,6 +26,7 @@ abstract class MphWeatherByCityUseCaseModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun providesWeatherByCityUseCase(repository: MphWeatherByCityRepositoryImpl) :
+    abstract fun providesWeatherByCityUseCase(repository: MphWeatherByCityRepositoryImpl):
             MphWeatherByCityRepository
+
 }

@@ -27,7 +27,7 @@ interface MphWeatherByCityRepository {
      * @param cityName query value for city.
      * @return [MphCommonData] as a  flow.
      */
-    suspend fun getWeatherData(cityName: String): Flow<MphNetworkResponse>
+    suspend fun getWeatherData(cityName: String, ): Flow<MphNetworkResponse>
 
 }
 
