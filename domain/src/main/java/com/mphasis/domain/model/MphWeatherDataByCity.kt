@@ -15,7 +15,8 @@ class MphWeatherDataByCity(
     var humidity: Int = 0,
     var temprature: Float = 0.0f,
     var pressure: Int = 0,
-    var visibility: Int = 0
+    var visibility: Int = 0,
+    var icon: String = "10d"
 ) : MphCommonData
 
 /**

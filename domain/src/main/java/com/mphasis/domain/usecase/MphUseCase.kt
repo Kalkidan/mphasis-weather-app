@@ -46,7 +46,7 @@ class MphWeatherByCityUseCaseImpl @Inject constructor(private val repository: Mp
         }
 
     override fun processFailure(): MphErrorData {
-        return MphErrorData("")
+        return MphErrorData("We are currently experiencing some difficulties - please try again later.")
     }
 
     override fun processValue(value: WeatherData): MphWeatherDataByCity {
@@ -59,6 +59,7 @@ class MphWeatherByCityUseCaseImpl @Inject constructor(private val repository: Mp
             it.feelsLike = value.main.feelsLike
             it.temprature = value.main.temp
             it.visibility = value.visibility
+            it.icon = value.weather[0].icon
         }
     }
 

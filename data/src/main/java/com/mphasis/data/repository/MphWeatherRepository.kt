@@ -25,7 +25,6 @@ interface MphWeatherByCityRepository {
      * Gets a weather data from network using:
      *
      * @param cityName query value for city.
-     * @return [MphCommonData] as a  flow.
      */
     suspend fun getWeatherData(cityName: String, ): Flow<MphNetworkResponse>
 

@@ -10,9 +10,9 @@ import com.mphasis.domain.model.MphWeatherDataByCity
  * as a Home destination
  */
 @Composable
-fun Home(cityWeatherState: State<MphWeatherDataByCity>) {
+fun Home(cityWeatherState: State<MphWeatherDataByCity>, onSearchQuery: (String) -> Unit) {
     Column {
-        SearchTextField()
+        SearchTextField(onSearchQuery)
         DetailWeatherScreen(cityWeatherState)
     }
 }

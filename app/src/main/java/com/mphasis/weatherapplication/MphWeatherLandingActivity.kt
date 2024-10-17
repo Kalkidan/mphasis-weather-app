@@ -41,8 +41,19 @@ class MphWeatherLandingActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WeatherApplicationTheme {
+                /************************************************************************************
+                 * This is the driving code for the application - the idea is:
+                 * 1 - Check permission using composable function [RequestPermission]
+                 * 2 - Based on that response - process the location data:
+                 * 3 - This data is from either the good last known location or current one.
+                 * 4 - If [getLastGoodKnownUserLocation] returns success - then process it through
+                 * the [MphWeatherByCityViewModel] to get the data for the city.
+                 * 5 - If failure - for now its not done - because of time constraints
+                 * 6 - If location is returned NULL then go for current location and do the same -
+                 * meaning, if success process the request through the viewmodel
+                 * *************************************************************************************/
                 RequestPermission(
-                    userLocationSuccess = {
+                    userLocationPermissionSuccess = {
                         getLastGoodKnownUserLocation(
                             userLocationSuccess = { locationData ->
                                 viewModel.weatherByCity(
@@ -51,14 +62,28 @@ class MphWeatherLandingActivity : ComponentActivity() {
                                 )
                             },
                             userLocationFailure = {
-
+                                //Do nothing for now
                             },
                             userLocationNull = {
-
+                                //Here let us try to get the user's current location
+                                getCurrentLocation(
+                                    currentLocationSuccess = { locationData ->
+                                        viewModel.weatherByCity(
+                                            locationData.first,
+                                            locationData.second
+                                        )
+                                    },
+                                    currentLocationFailure = {
+                                        //Do nothing for now
+                                    }
+                                )
                             }
                         )
                     },
-                    viewModel.cityWeatherState
+                    viewModel.cityWeatherState,
+                    viewModel.cityWeatherErrorState,
+                    viewModel.onSearchQuery,
+                    viewModel.onSearchFail
                 )
             }
         }
@@ -130,7 +155,7 @@ class MphWeatherLandingActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     WeatherApplicationTheme {
-        Home(mutableStateOf(MphWeatherDataByCity()))
+        Home(mutableStateOf(MphWeatherDataByCity()), { })
     }
 }
 
