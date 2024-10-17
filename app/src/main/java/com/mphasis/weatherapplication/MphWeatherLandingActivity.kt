@@ -41,7 +41,7 @@ class MphWeatherLandingActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WeatherApplicationTheme {
-                /************************************************************************************
+                /*****************************************************************************************
                  * This is the driving code for the application - the idea is:
                  * 1 - Check permission using composable function [RequestPermission]
                  * 2 - Based on that response - process the location data:
