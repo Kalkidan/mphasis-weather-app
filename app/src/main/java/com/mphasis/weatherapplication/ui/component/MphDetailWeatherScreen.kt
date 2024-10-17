@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -18,7 +19,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -62,7 +62,7 @@ fun CityDetails(cityWeatherState: State<MphWeatherDataByCity>) {
         Text(
             text = "Place :",
             modifier = Modifier
-                .padding(16.dp),
+                .padding(8.dp),
             textAlign = TextAlign.Left,
             color = Color.White
         )
@@ -70,7 +70,7 @@ fun CityDetails(cityWeatherState: State<MphWeatherDataByCity>) {
         Text(
             text = cityWeatherState.value.name,
             modifier = Modifier
-                .padding(16.dp),
+                .padding(8.dp),
             textAlign = TextAlign.Center,
         )
     }
@@ -86,9 +86,9 @@ fun WeatherIcon(cityWeatherState: State<MphWeatherDataByCity>) {
     )
     Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
         Image(
-            contentScale = ContentScale.Crop,
             painter = imageLoader,
             contentDescription = stringResource(id = R.string.weather),
+            Modifier.size(150.dp, 150.dp)
         )
     }
 }
@@ -100,7 +100,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = "Type :",
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Left,
                 color = Color.White
             )
@@ -108,7 +108,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = cityWeatherState.value.weatherType,
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Center,
             )
         }
@@ -116,7 +116,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = "Feels Like :",
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Left,
                 color = Color.White
             )
@@ -124,7 +124,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = cityWeatherState.value.feelsLike.toString(),
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Center,
             )
         }
@@ -132,7 +132,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = "Humidity :",
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Left,
                 color = Color.White
             )
@@ -140,7 +140,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = cityWeatherState.value.humidity.toString(),
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Center,
             )
         }
@@ -148,7 +148,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = "Temperature :",
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Left,
                 color = Color.White
             )
@@ -156,7 +156,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = cityWeatherState.value.temprature.toString(),
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Center,
             )
         }
@@ -164,7 +164,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = "Pressure :",
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Left,
                 color = Color.White
             )
@@ -172,7 +172,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = cityWeatherState.value.pressure.toString(),
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Center,
             )
         }
@@ -180,7 +180,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = "Description of Weather :",
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Left,
                 color = Color.White
             )
@@ -188,7 +188,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = cityWeatherState.value.weatherDescription,
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Center,
             )
         }
@@ -196,7 +196,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = "Visibility :",
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Left,
                 color = Color.White
             )
@@ -204,7 +204,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
             Text(
                 text = cityWeatherState.value.visibility.toString(),
                 modifier = Modifier
-                    .padding(16.dp),
+                    .padding(8.dp),
                 textAlign = TextAlign.Center,
             )
         }
