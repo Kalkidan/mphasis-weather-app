@@ -1,6 +1,5 @@
 package com.mphasis.domain.viewmodel
 
-import android.location.Address
 import android.location.Geocoder
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -97,9 +96,7 @@ class MphWeatherByCityViewModel @Inject constructor(
         savedStateHandle["latitude"] = latitude
         savedStateHandle["longitude"] = longitude
         viewModelScope.launch {
-            val defaultAddress = Address(java.util.Locale("en")).apply { this.locality = "London" }
-            val currentAddress = geocoder.getAddress(latitude, longitude) ?: defaultAddress
-            val cityName = currentAddress.locality
+            val cityName = geocoder.getAddress(latitude, longitude)?.locality ?: "New York"
             useCase.invoke(cityName).collect {
                 when (it) {
                     is MphWeatherDataByCity -> cityWeatherMutableState.value = it

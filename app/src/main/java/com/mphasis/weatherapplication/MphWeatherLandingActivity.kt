@@ -80,6 +80,11 @@ class MphWeatherLandingActivity : ComponentActivity() {
                             }
                         )
                     },
+                    //Don't pass view model instance
+                    //either use state hoisting or
+                    //use navigation hiltViewModel<>() for injecting
+                    //view models scoped for composable functions
+                    //for our purposes - state hoisting suffices.
                     viewModel.cityWeatherState,
                     viewModel.cityWeatherErrorState,
                     viewModel.onSearchQuery,
