@@ -98,7 +98,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
     Column {
         Row {
             Text(
-                text = "Type:",
+                text = "Type :",
                 modifier = Modifier
                     .padding(16.dp),
                 textAlign = TextAlign.Left,
@@ -114,7 +114,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
         }
         Row {
             Text(
-                text = "Feels Like:",
+                text = "Feels Like :",
                 modifier = Modifier
                     .padding(16.dp),
                 textAlign = TextAlign.Left,
@@ -130,7 +130,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
         }
         Row {
             Text(
-                text = "Humidity:",
+                text = "Humidity :",
                 modifier = Modifier
                     .padding(16.dp),
                 textAlign = TextAlign.Left,
@@ -146,7 +146,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
         }
         Row {
             Text(
-                text = "Temprature:",
+                text = "Temperature :",
                 modifier = Modifier
                     .padding(16.dp),
                 textAlign = TextAlign.Left,
@@ -162,7 +162,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
         }
         Row {
             Text(
-                text = "Pressure:",
+                text = "Pressure :",
                 modifier = Modifier
                     .padding(16.dp),
                 textAlign = TextAlign.Left,
@@ -178,7 +178,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
         }
         Row {
             Text(
-                text = "Description of Weather:",
+                text = "Description of Weather :",
                 modifier = Modifier
                     .padding(16.dp),
                 textAlign = TextAlign.Left,
@@ -194,7 +194,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
         }
         Row {
             Text(
-                text = "Visibility:",
+                text = "Visibility :",
                 modifier = Modifier
                     .padding(16.dp),
                 textAlign = TextAlign.Left,
@@ -214,7 +214,7 @@ fun WeatherDetail(cityWeatherState: State<MphWeatherDataByCity>) {
 @SuppressLint("UnrememberedMutableState")
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun DetailedScreenPreview() {
     WeatherApplicationTheme {
         DetailWeatherScreen(mutableStateOf(MphWeatherDataByCity()))
     }

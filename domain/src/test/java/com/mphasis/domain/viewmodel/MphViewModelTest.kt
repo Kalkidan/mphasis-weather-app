@@ -7,11 +7,8 @@ import com.mphasis.domain.usecase.MphTestWeatherDataRepository
 import com.mphasis.domain.usecase.MphWeatherByCityUseCaseImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestDispatcher
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -54,7 +51,7 @@ class MphViewModelTest {
     }
 
     @Test
-    fun test() = runTest {
+    fun testWeatherByCityOnViewModel() = runTest {
         assertEquals(viewModel.cityWeatherState.value.name, "New York")
     }
 }

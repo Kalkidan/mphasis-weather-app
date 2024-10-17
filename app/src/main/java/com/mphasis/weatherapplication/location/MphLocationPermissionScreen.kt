@@ -1,5 +1,6 @@
 package com.mphasis.weatherapplication.location
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -17,9 +18,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.DialogProperties
@@ -28,6 +31,7 @@ import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.mphasis.domain.model.MphWeatherDataByCity
 import com.mphasis.domain.model.error.MphErrorData
 import com.mphasis.weatherapplication.ui.component.Home
+import com.mphasis.weatherapplication.ui.theme.WeatherApplicationTheme
 
 /**
  * A composable function to request permission.
@@ -35,11 +39,11 @@ import com.mphasis.weatherapplication.ui.component.Home
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun RequestPermission(
-    userLocationPermissionSuccess: () -> Unit,
+    userLocationPermissionSuccess: () -> Unit = { },
     cityWeatherState: State<MphWeatherDataByCity>,
     cityWeatherErrorState: State<MphErrorData>,
-    onSearchQuery: (String) -> Unit,
-    onSearchFail: () -> Unit
+    onSearchQuery: (String) -> Unit = { },
+    onSearchFail: () -> Unit = { }
 ) {
 
     val locationPermissionsState = rememberMultiplePermissionsState(
@@ -139,6 +143,18 @@ fun RequestPermission(
                 }
             }
         }
+    }
+}
+
+@SuppressLint("UnrememberedMutableState")
+@Preview(showBackground = true)
+@Composable
+fun RequestPermissionPreview() {
+    WeatherApplicationTheme {
+        RequestPermission(
+            cityWeatherState = mutableStateOf(MphWeatherDataByCity()),
+            cityWeatherErrorState = mutableStateOf(MphErrorData("Hello"))
+        )
     }
 }
 

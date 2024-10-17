@@ -1,5 +1,6 @@
 package com.mphasis.weatherapplication.ui.component
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,8 +25,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mphasis.weatherapplication.R
+import com.mphasis.weatherapplication.ui.theme.WeatherApplicationTheme
 
 /**
  * A composable function to serve as a
@@ -46,7 +49,7 @@ fun SearchTextField(onSearchQuery: (String) -> Unit) {
             onValueChange = {
                 searchQuery = it
             },
-            colors =  TextFieldDefaults.colors(
+            colors = TextFieldDefaults.colors(
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent
@@ -76,5 +79,14 @@ fun SearchTextField(onSearchQuery: (String) -> Unit) {
             singleLine = true
         )
         Spacer(Modifier.size(16.dp))
+    }
+}
+
+@SuppressLint("UnrememberedMutableState")
+@Preview(showBackground = true)
+@Composable
+fun SearchScreenPreview() {
+    WeatherApplicationTheme {
+        SearchTextField {  }
     }
 }

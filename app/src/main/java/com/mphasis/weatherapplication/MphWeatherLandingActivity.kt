@@ -158,9 +158,9 @@ class MphWeatherLandingActivity : ComponentActivity() {
 @SuppressLint("UnrememberedMutableState")
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun HomePagePreview() {
     WeatherApplicationTheme {
-        Home(mutableStateOf(MphWeatherDataByCity()), { })
+        Home(mutableStateOf(MphWeatherDataByCity())) { }
     }
 }
 

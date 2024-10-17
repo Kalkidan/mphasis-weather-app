@@ -42,7 +42,7 @@ class MphWeatherByCityViewModel @Inject constructor(
     val cityWeatherErrorState: State<MphErrorData> = cityWeatherMutableErrorState
 
     //A convenient method for triggering search query.
-    val onSearchQuery: (String) -> Unit = { value -> weatherByCity(value)}
+    val onSearchQuery: (String) -> Unit = { value -> weatherByCity(value) }
 
     //A convenient method for reloading the landing page when search fails.
     val onSearchFail: () -> Unit = {
@@ -93,6 +93,14 @@ class MphWeatherByCityViewModel @Inject constructor(
      * @param longitude
      */
     fun weatherByCity(latitude: Double, longitude: Double) {
+        if(searchQuery.isNotEmpty()) {
+            //This means we already have search results from previous launch
+            //so launch that result.
+            weatherByCity(searchQuery)
+            return
+        }
+        //Otherwise get the lat and long and
+        //populate the city's weather.
         savedStateHandle["latitude"] = latitude
         savedStateHandle["longitude"] = longitude
         viewModelScope.launch {
